@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BOOKING PAGE</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f8ff;
+        }
+        form {
+            background-color: skyblue;
+            padding: 20px;
+            width: 500px;
+            margin: auto;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+        }
+        th {
+            text-align: left;
+            padding-right: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function validateForm() {
+            var pincode = document.getElementById('pincode').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            // Regular Expressions
+            var pincodePattern = /^(?:[1-9]\d{5})$/;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phonePattern = /^\+91[6-9]\d{9}$/;
+
+            if (!(pincodePattern.test(pincode))) { // Corrected line
+                alert("Invalid Pin Code. Format should be like 500011.");
+                return false;
+            }
+
+            if (!(emailPattern.test(email))) {
+                alert("Invalid Email. Use format: example@mail.com");
+                return false;
+            }
+
+            if (!(phonePattern.test(phone))) {
+                alert("Invalid Phone Number. Format should be +91 followed by 10 digits.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body style="background-color: darkblue;">
+    
+    <form onsubmit="return validateForm()">
+        <h2 align="center">BOOKING CENTRE</h2>
+        <table>
+            <tr><th>Name:</th><td><input type="text" placeholder="Enter your name" required /></td></tr>
+            <tr><th>Phone:</th><td><input type="text" id="phone" placeholder="+91XXXXXXXXXX" required /></td></tr>
+            <tr><th>Email:</th><td><input type="text" id="email" placeholder="e.g. abc@mail.com" required /></td></tr>
+            <tr><th>Date of Birth:</th><td><input type="date" required /></td></tr>
+            <tr><th>Gender:</th>
+                <td>
+                    <input type="radio" name="gender" required /> Male
+                    <input type="radio" name="gender" required /> Female
+                </td>
+            </tr>
+            <tr><th>State:</th>
+                <td>
+                    <select required>
+                        <option value="">--Select--</option>
+                        <option>Karnataka</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Tamil Nadu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><th>Address:</th><td><textarea rows="3" cols="20" required></textarea></td></tr>
+            <tr><th>Delivery Time:</th>
+                <td>
+                    <input type="radio" name="ps">8a.m.-10a.m.<br>
+                    <input type="radio" name="ps">11a.m.-1p.m.<br>
+                    <input type="radio" name="ps">2p.m.-4p.m.<br>
+                    <input type="radio" name="ps">5p.m.-7p.m.
+                </td>
+            </tr>
+            
+            
+            
+            
+            <tr><th>Pin Code:</th><td><input type="text" id="pincode" placeholder="e.g. 500011" required /></td></tr>
+            <tr><th>Upload User Photo:</th><td><input type="file" required /></td></tr>
+            <tr><td colspan="2" align="center"><input type="submit" value="Submit" /></td></tr>
+        </table>
+    </form>
+</body>
+</html>
