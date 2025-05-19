@@ -5,7 +5,7 @@ $password = "";
 $dbname = "web121";
 date_default_timezone_set("Asia/Kolkata");
 $currentTime = date("h:i:sa");
-
+$currentDate = date("d-m-Y");
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn)
@@ -15,7 +15,6 @@ if (!$conn)
 $name = $_REQUEST['name'];
 $ph = $_REQUEST['ph'];
 $eml = $_REQUEST['eml'];
-$dob = $_REQUEST['dob'];
 $g = $_REQUEST['g'];
 $s = $_REQUEST['s'];
 $addd = $_REQUEST['addd'];
@@ -24,8 +23,8 @@ $pc = $_REQUEST['pc'];
 $rvs = $_REQUEST['rvs'];
 
 // Insert query
-$crt1 = "INSERT INTO `StudentInfo121`(`name`, `ph`, `eml`, `dob`, `g`, `s`, `addd`, `dt`, `pc`, `rvs`, `currentTime`) 
-         VALUES ('$name','$ph','$eml','$dob','$g','$s','$addd','$dt','$pc','$rvs','$currentTime')";
+$crt1 = "INSERT INTO `StudentInfo121`(`name`, `ph`, `eml`, `currentDate`, `g`, `s`, `addd`, `dt`, `pc`, `rvs`, `currentTime`) 
+         VALUES ('$name','$ph','$eml','$currentDate','$g','$s','$addd','$dt','$pc','$rvs','$currentTime')";
 
 if (mysqli_query($conn, $crt1)) 
 {
