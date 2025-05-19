@@ -6,7 +6,7 @@
             width: 33%;
             text-align: center;
             border-collapse: collapse;
-            background-color: lightblue;
+            background-color: pink;
         }
         table {
             margin: auto;
@@ -31,11 +31,11 @@ $result = mysqli_query($conn, $sql);
 echo "<h2 style='text-align:center;'>Previous Bookings</h2>";
 echo "<table>";
 echo "<tr>
-        <th>NAME</th>
+        <th>Name</th>
         <th>Phone Number</th>
         <th>Email</th>
-        <th>Date of Birth</th>
         <th>Gender</th>
+        <th>Booked Date</th>
         <th>Water Tanker</th>
         <th>Address</th>
         <th>Delivery Time</th>
@@ -49,8 +49,8 @@ if ($result->num_rows > 0) {
                 <td>{$row['name']}</td>
                 <td>{$row['ph']}</td>
                 <td>{$row['eml']}</td>
-                <td>{$row['dob']}</td>
                 <td>{$row['g']}</td>
+                <td>{$row['currentDate']}</td>
                 <td>{$row['s']}</td>
                 <td>{$row['addd']}</td>
                 <td>{$row['dt']}</td>
