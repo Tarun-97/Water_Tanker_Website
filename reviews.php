@@ -6,7 +6,7 @@
             width: 33%;
             text-align: center;
             border-collapse: collapse;
-            background-color: lightblue;
+            background-color: #fff8f0;
         }
         table {
             margin: auto;
